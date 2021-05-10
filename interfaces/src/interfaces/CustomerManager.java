@@ -1,16 +1,25 @@
 package interfaces;
 
 public class CustomerManager {
+	
+	private Logger[] loggers;
+	
+	//loosly - tightly coupled
+
+	public CustomerManager(Logger[] loggers) {
+		
+		this.loggers = loggers;
+	}
 
 	public void add(Customer customer) {
-		System.out.println("müþteri eklendi" + customer.getFirstName());
-		DatabaseLogger logger = new DatabaseLogger();
-		logger.log(customer.getFirstName() + "veri tabanýna loglandý");
+		System.out.println("müþteri eklendi " + customer.getFirstName());
+		
+		
+		Utils.runLoggers(loggers, customer.getFirstName());
 	}
 	
 	public void delete (Customer customer) {
 		System.out.println("müþteri silindi" + customer.getFirstName());
-		DatabaseLogger logger = new DatabaseLogger();
-		logger.log(customer.getFirstName() + "veri tabanýna loglandý");
+		Utils.runLoggers(loggers, customer.getLastName());
 	}
 }
