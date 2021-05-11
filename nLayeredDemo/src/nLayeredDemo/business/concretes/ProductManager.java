@@ -34,5 +34,11 @@ public class ProductManager implements ProductService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 }
+
+//ProductManager.add() //static
+//ProductManager productManager = new ProductManager();
+//productManager.add() //non-static
+//add() -> byte[]
